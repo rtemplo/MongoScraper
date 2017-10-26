@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    
     $("#home-link").on("click", function () {
         window.location = "/";
     });
@@ -45,6 +46,10 @@ $(document).on("click", ".delete-article", function() {
         }
     });    
 }); 
+
+$(document).on("click", ".view-note", function () {
+    $("#notes-modal").modal('show');
+});
 
 // Grab the articles as a json
 $.getJSON("/articles", function(data) {

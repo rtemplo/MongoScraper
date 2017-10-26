@@ -18,6 +18,61 @@
 </head>
 
 <body>
+
+    <!-- Modal -->
+    <div class="modal fade" id="notes-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Article Notes</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <span id="modal-article-title"></span>
+                        </div>
+                    </div>
+                    <div class="row" id="note-layer">
+                        <div class="col-12" id="">
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            </div>
+                        </div>
+                        <div class="col-12" id="">
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            </div>
+                        </div>                        
+                    </div>
+                    <form id="note-form">
+                        <div class="form-group">
+                            <label for="note-title">Note Title</label>
+                            <input type="email" class="form-control" id="note-title" placeholder="Give your note a quick title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="note-body">Notes</label>
+                            <textarea class="form-control" id="note-body" rows="3" required></textarea>
+                        </div>
+                    </form>                    
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Save New Note</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>    
+
     <!-- nav and jumbotron div are not in a container for edge to edge display -->
 
     <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
