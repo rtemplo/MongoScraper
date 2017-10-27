@@ -14,6 +14,10 @@
     body {
         padding-top: 2rem;
     }
+
+    .dontshow {
+        display: none;
+    }
 </style>
 </head>
 
@@ -21,7 +25,7 @@
 
     <!-- Modal -->
     <div class="modal fade" id="notes-modal">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                 <h5 class="modal-title">Article Notes</h5>
@@ -30,44 +34,46 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col">
-                            <span id="modal-article-title"></span>
-                        </div>
-                    </div>
+                    <!--This is where the saved notes retrieved from the db will go-->
                     <div class="row" id="note-layer">
-                        <div class="col-12" id="">
+                        <!-- Hidden note Layer for cloning -->
+                        <div class="col-12 saved-note dontshow" id="note-template">
                             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <button type="button" class="close note-delete" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                <div id="note-text-area">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-12" id="">
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </div>
-                        </div>                        
+                        </div>                      
                     </div>
+
                     <form id="note-form">
+                        <input type="hidden" value="" id="articleID" name="articleID">
+                        <input type="hidden" value="" id="noteID" name="noteID">
                         <div class="form-group">
                             <label for="note-title">Note Title</label>
-                            <input type="email" class="form-control" id="note-title" placeholder="Give your note a quick title" required>
+                            <input type="email" class="form-control" id="note-title" name="note-title" placeholder="Give your note a quick title" required>
                         </div>
                         <div class="form-group">
                             <label for="note-body">Notes</label>
-                            <textarea class="form-control" id="note-body" rows="3" required></textarea>
+                            <textarea class="form-control" id="note-body" name="note-body" rows="3" required></textarea>
                         </div>
                     </form>                    
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save New Note</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <div class="col-10" id="update-controls">
+                        <button type="button" class="btn btn-primary" id="update-note">Update Note</button>
+                        <button type="button" class="btn btn-primary" id="new-note">New Note</button>
+                    </div>
+                    <div class="col-10" id="save-controls">
+                        <button type="button" class="btn btn-primary" id="save-note">Save Note</button>
+                    </div>
+                    <div class="col-2">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -93,16 +99,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#" id="articles-link">Saved Articles</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
             </ul>
         </div>
     </nav>
 
     <div class="jumbotron">
         <div class="container text-center">
-            <h1 class="display-3">Banner Stuff goes here!!!</h1>
+            <h1 class="display-3">NYT Tech News Scraper</h1>
         </div>
     </div>
 
