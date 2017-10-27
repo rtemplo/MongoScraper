@@ -1,4 +1,5 @@
 var PORT = process.env.PORT || 8080;
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 // Dependencies
 var express = require("express");
@@ -25,7 +26,7 @@ app.use(express.static("public"));
 //Set Promise object for the ORM
 mongoose.Promise = Promise;
 //Connect to the Mongoose ORM
-mongoose.connect("mongodb://localhost/newsgator", {
+mongoose.connect(MONGODB_URI, {
   useMongoClient: true
 });
 
